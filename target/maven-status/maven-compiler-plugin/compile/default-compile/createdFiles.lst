@@ -1,0 +1,4 @@
+manejoformulario\servlet\FiltroLogin.class
+manejoformulario\model\Persona.class
+manejoformulario\servlet\LoginServlet.class
+manejoformulario\model\Telefono.class
