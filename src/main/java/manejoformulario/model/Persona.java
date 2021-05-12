@@ -11,16 +11,25 @@ import java.io.Serializable;
  *
  * @author jonat
  */
-public class Persona implements Serializable{
-    
- public Persona(){
-     
- }
+public class Persona implements Serializable {
+
+    public Persona() {
+
+    }
     private String cedula;
-   private String nombre;
-   private String apellido;
-   private String correo;
-   private String contrasena;
+    private String nombre;
+    private String apellido;
+    private String correo;
+    private String usuario;
+    private String contrasena;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
     public String getCedula() {
         return cedula;
@@ -61,7 +70,5 @@ public class Persona implements Serializable{
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-   
-   
-   
+
 }
