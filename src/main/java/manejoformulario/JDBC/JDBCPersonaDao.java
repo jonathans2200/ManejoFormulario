@@ -91,4 +91,22 @@ public class JDBCPersonaDao extends JDBCGenericDAo<Persona, Integer> implements 
     return lista;
     }
 
+    @Override
+    public boolean buscarPersona(String usuario, String contra) {
+   boolean resultado = false;
+        ResultSet rs=jdbc.query("SELECT * from public.\"Persona\" as a where a.usuario='admin' AND a.contrasena='admin'");
+        System.out.println("el resultado es" + rs);
+        try {
+            if (rs != null && rs.next()) {
+        return resultado= true;
+            }
+        } catch (SQLException ex) {
+            System.out.println("READ " + ex.getMessage());
+        return  resultado =false;
+        }
+        return resultado;
+    }
+    
+    
+
 }

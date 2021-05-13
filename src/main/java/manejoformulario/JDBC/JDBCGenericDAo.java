@@ -6,7 +6,6 @@
 package manejoformulario.JDBC;
 
 import manejoformulario.Dao.GenericDao;
-import manejoformulario.utils.ConexionJDBC;
 
 
 /**
