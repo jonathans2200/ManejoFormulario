@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.xml.registry.infomodel.TelephoneNumber;
 import manejoformulario.Dao.TelefonoDao;
+import manejoformulario.model.Persona;
 import manejoformulario.model.Telefono;
 
 /**
@@ -79,10 +80,18 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
     public List<Telefono> buscar() {
 
         List<Telefono> lista = new ArrayList<Telefono>();
-        ResultSet rs = jdbc.query("SELECT * FROM TELEFONO");
+        ResultSet rs = jdbc.query("SELECT * FROM telefono");
         try {
             while (rs.next()) {
-                lista.add(new Telefono());
+                Telefono t = new Telefono();
+                t.setCodigo(rs.getInt("codigo"));
+                t.setNumero(rs.getString("numero"));
+                t.setTipo(rs.getString("tipo"));
+                t.setOperadora(rs.getString("operador"));
+                Persona p = new Persona();
+                p.setCedula(rs.getString("persona_id"));
+                t.setPersona(p);
+                lista.add(t);
             }
         } catch (SQLException ex) {
             System.out.println("Buscar" + ex.getMessage());
@@ -90,13 +99,9 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
         return lista;
     }
 
-  
-
     @Override
     public Telefono buscarPersona(String usuario, String pass) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-   
 
 }

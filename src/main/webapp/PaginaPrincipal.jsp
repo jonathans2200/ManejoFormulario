@@ -4,7 +4,9 @@
     Author     : jonat
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,15 +14,15 @@
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-    </head>
+    </head>                   
 
 
     <header>
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand">PAGINA PRINCIPAL</a>
+                <a class="navbar-brand"></a>
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="#" class="nav-link px-2 link-secondary">INICIO</a></li>
+                    <li><a href="#" class="nav-link px-2 link-secondary">BIENVENIDO</a></li>
                 </ul>
                 <form class="d-flex">
 
@@ -38,27 +40,29 @@
                     <div class="card-tittle"></div>
                     <h3 class="card card-tittle"> DATOS DEL USUARIO</h3>
                     <div class="card-body"></div>
+                    <c:set  var="lista" scope="request" value="${usuario}"/>
                     <div class="row">
                         <div class="form-group">
-                            <label>CEDULA: </label> 
+                            <label>CEDULA: </label>
+                            <p> ${lista.cedula}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
                             <label>NOMBRE: </label> 
-                            
+                            <p> ${lista.nombre}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
                             <label>APELLIDO: </label> 
-                            
+                            <p> ${lista.apellido}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                                    <label>CORREO: </label> 
-                    
+                            <label>CORREO: </label> 
+                            <p> ${lista.correo}</p>
                         </div>
                     </div>
                     <!-- comment -->
@@ -67,11 +71,12 @@
                 </div>
 
             </div>
-            <div class="col-md-9">
+            <div class="col-md-7">
                 <div class="card">
                     <div class="card-tittle"></div>
                     <h2>LISTADO DE TELEFONOS</h2>
                     <div class="card-body"></div>
+                    <c:set  var="lista" scope="request" value="${personas}"/>
                     <table class="table">
                         <thead class="table-dark">
 
@@ -84,7 +89,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                         
+                            <c:forEach var="t" items="${lista}">
+                                <tr>
+                                    <td>${t.codigo}</td>
+                                    <td>${t.numero}</td>
+                                    <td>${t.tipo}</td>
+                                    <td>${t.operadora}</td>
+                                    <td><button type="button" class="btn btn-primary">MODIFICAR</button>
+                                        <button type="button" class="btn btn-danger">ELIMINAR</button>
+                                </tr>  
+                            </c:forEach>
                         </tbody>
                     </table>
                     <div class="card-footer"></div>
@@ -95,7 +109,7 @@
         </div>
 
     </div>
-    <h1>Hello World!</h1>
+
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"

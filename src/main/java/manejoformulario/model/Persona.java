@@ -6,6 +6,7 @@
 package manejoformulario.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  *
@@ -22,6 +23,15 @@ public class Persona implements Serializable {
     private String correo;
     private String usuario;
     private String contrasena;
+    private List<Telefono> telefono;
+
+    public List<Telefono> getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(List<Telefono> telefono) {
+        this.telefono = telefono;
+    }
 
     public String getUsuario() {
         return usuario;

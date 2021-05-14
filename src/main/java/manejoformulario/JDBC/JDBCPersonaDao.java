@@ -81,7 +81,7 @@ public class JDBCPersonaDao extends JDBCGenericDAo<Persona, Integer> implements 
     public List<Persona> buscar() {
      
             List<Persona> lista= new ArrayList<Persona>();
-            ResultSet rs=jdbc.query("SELECT * FROM PERSONA");
+            ResultSet rs=jdbc.query("SELECT * FROM telefono");
         try {
             while(rs.next()){
                 lista.add(new Persona());

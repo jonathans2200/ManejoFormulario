@@ -14,6 +14,7 @@ import manejoformulario.JDBC.JDBCDAOFactory;
 public abstract class DAOFactory {
     protected static DAOFactory factory = new JDBCDAOFactory();
     
+  
     public static DAOFactory getFactory(){
         
        return factory;
