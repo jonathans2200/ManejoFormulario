@@ -15,7 +15,7 @@ public interface GenericDao<T,ID> {
     public void crearTabla();
     public void crear(T entity);
     public T read(ID id);
-    public boolean buscarPersona(String usuario,String contra);
+    public T buscarPersona(String usuario,String pass);
     public void update(T entity);
     public void eliminar(T entity);
     public List<T> buscar();

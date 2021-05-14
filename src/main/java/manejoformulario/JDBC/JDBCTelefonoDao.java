@@ -90,9 +90,13 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
         return lista;
     }
 
+  
+
     @Override
-    public boolean buscarPersona(String usuario, String contra) {
+    public Telefono buscarPersona(String usuario, String pass) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+   
 
 }
