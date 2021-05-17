@@ -48,13 +48,14 @@ public class LoginServlet extends HttpServlet {
         String pass = request.getParameter("pass");
         PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession();
-        listaTelefono = telefonoDao.buscar();
+       
         System.out.println("Tamaño de la lista recuperada: " + listaTelefono.size());
 
         Persona p = persona.buscarPersona(usuario, pass);
         if (usuario.equals(p.getUsuario()) && pass.equals(p.getContrasena())) {
             request.setAttribute("personas", listaTelefono);
             sesion.setAttribute("usuario", p);
+             listaTelefono = telefonoDao.buscarPorCedula(p.getCedula());
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaPrincipal.jsp");
             dispatcher.forward(request, response);
 //		

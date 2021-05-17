@@ -52,7 +52,13 @@ public class JDBCPersonaDao extends JDBCGenericDAo<Persona, Integer> implements 
 
         try {
             if (rs != null && rs.next()) {
-                p = new Persona();
+                p=new Persona();
+                p.setNombre(rs.getString("nombre"));
+                p.setApellido(rs.getString("apellido"));
+                p.setCedula(rs.getString("cedula"));
+                p.setCorreo(rs.getString("correo"));
+                p.setUsuario(rs.getString("usuario"));
+                p.setContrasena(rs.getString("contrasena"));
             }
         } catch (SQLException ex) {
             System.out.println("READ " + ex.getMessage());
@@ -79,26 +85,25 @@ public class JDBCPersonaDao extends JDBCGenericDAo<Persona, Integer> implements 
 
     @Override
     public List<Persona> buscar() {
-     
-            List<Persona> lista= new ArrayList<Persona>();
-            ResultSet rs=jdbc.query("SELECT * FROM telefono");
+
+        List<Persona> lista = new ArrayList<Persona>();
+        ResultSet rs = jdbc.query("SELECT * FROM telefono");
         try {
-            while(rs.next()){
+            while (rs.next()) {
                 lista.add(new Persona());
-            }    } catch (SQLException ex) {
-            System.out.println("Buscar"+ex.getMessage());
             }
-    return lista;
+        } catch (SQLException ex) {
+            System.out.println("Buscar" + ex.getMessage());
+        }
+        return lista;
     }
 
-  
-
     @Override
-    public Persona buscarPersona(String usuario,String pass) {
-     Persona p = null;
+    public Persona buscarPersona(String usuario, String pass) {
+        Persona p = null;
         ResultSet rs = jdbc.query("SELECT * FROM persona WHERE usuario='"
-                +usuario+"' AND contrasena='"
-                +pass+ "'");
+                + usuario + "' AND contrasena='"
+                + pass + "'");
 
         try {
             if (rs != null && rs.next()) {
@@ -117,6 +122,26 @@ public class JDBCPersonaDao extends JDBCGenericDAo<Persona, Integer> implements 
     }
 
     
-    
+     public Persona metodoBuscar(Integer id) {
+        Persona p = null;
+        ResultSet rs = jdbc.query("SELECT * FROM Persona WHERE cedula like '%"
+                +id+ "%' or correo like '%"
+                        + id+"%'");
 
+        try {
+            if (rs != null && rs.next()) {
+                p=new Persona();
+                p.setNombre(rs.getString("nombre"));
+                p.setApellido(rs.getString("apellido"));
+                p.setCedula(rs.getString("cedula"));
+                p.setCorreo(rs.getString("correo"));
+                p.setUsuario(rs.getString("usuario"));
+                p.setContrasena(rs.getString("contrasena"));
+            }
+        } catch (SQLException ex) {
+            System.out.println("READ " + ex.getMessage());
+        }
+        return p;
+    }
+    
 }

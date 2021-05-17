@@ -12,17 +12,19 @@ import manejoformulario.JDBC.JDBCDAOFactory;
  * @author jonat
  */
 public abstract class DAOFactory {
+
     protected static DAOFactory factory = new JDBCDAOFactory();
-    
-  
-    public static DAOFactory getFactory(){
-        
-       return factory;
+
+    public static DAOFactory getFactory() {
+
+        return factory;
     }
-    
-    public void crearTablas(){}
+
+    public void crearTablas() {
+    }
+
     public abstract PersonaDao getPersonaDao();
+
     public abstract TelefonoDao getTelefonoDao();
-    
-    
+
 }

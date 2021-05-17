@@ -7,82 +7,58 @@ package manejoformulario.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import manejoformulario.Dao.DAOFactory;
+import manejoformulario.Dao.TelefonoDao;
+import manejoformulario.model.Telefono;
 
 /**
  *
  * @author jonat
  */
-@WebServlet(name = "ModificarTelefonoController", urlPatterns = {"/ModificarTelefonoController"})
+@WebServlet("/ModificarTelefonoController")
 public class ModificarTelefonoController extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ModificarTelefonoController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ModificarTelefonoController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+    private TelefonoDao telefonoDao;
+    private Telefono telefono;
+
+    public ModificarTelefonoController() {
+        telefonoDao = DAOFactory.getFactory().getTelefonoDao();
+        telefono = new Telefono();
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        int dato = Integer.parseInt(request.getParameter("codigo"));
+        telefono = telefonoDao.read(dato);
+        request.setAttribute("telefono", telefono);
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ModificarTelefono.jsp");
+        dispatcher.forward(request, response);
+        // TODO Auto-generated method stub
+    }
+ 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+       
+        String url = null;
+        try {
+            telefono.setCodigo(Integer.valueOf(request.getParameter("codigo")));
+            telefono.setNumero(request.getParameter("numero"));
+            telefono.setTipo(request.getParameter("tipo"));
+            telefono.setOperadora(request.getParameter("operador"));
+            telefonoDao.update(telefono);
+            
+           url = "/PaginaPrinciapl.jsp";
+        } catch (Exception e) {
+            System.out.println("error" + e.getMessage());
+        }
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
 }

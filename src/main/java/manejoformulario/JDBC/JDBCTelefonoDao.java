@@ -52,6 +52,15 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
         try {
             if (rs != null && rs.next()) {
                 p = new Telefono();
+                Persona s = new Persona();
+                p.setCodigo(rs.getInt("codigo"));
+                p.setNumero(rs.getString("numero"));
+                p.setOperadora(rs.getString("operador"));
+                p.setTipo(rs.getString("tipo"));
+
+                s.setCedula(rs.getString("cedula"));
+                p.setPersona(s);
+
             }
         } catch (SQLException ex) {
             System.out.println("READ " + ex.getMessage());
@@ -62,10 +71,10 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
     @Override
     public void update(Telefono entity) {
         jdbc.update("UPDATE Telefono SET numero='"
-                + entity.getNumero() + "',operadora='"
+                + entity.getNumero() + "',operador='"
                 + entity.getOperadora() + "', tipo='"
-                + entity.getTipo() + "',  persona_id='"
-                + entity.getPersona().getCedula() + "' WHERE codigo="
+                + entity.getTipo() + 
+                 "' WHERE codigo="
                 + entity.getCodigo() + ";");
 
     }
@@ -99,9 +108,29 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
         return lista;
     }
 
-    @Override
-    public Telefono buscarPersona(String usuario, String pass) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
+    
+    
+     public List<Telefono> buscarPorCedula(String cedula) {
+
+        List<Telefono> lista = new ArrayList<Telefono>();
+        ResultSet rs = jdbc.query("SELECT * FROM telefono WHERE persona_id='"
+                +cedula +"'");
+        try {
+            while (rs.next()) {
+                Telefono t = new Telefono();
+                t.setCodigo(rs.getInt("codigo"));
+                t.setNumero(rs.getString("numero"));
+                t.setTipo(rs.getString("tipo"));
+                t.setOperadora(rs.getString("operador"));
+                Persona p = new Persona();
+                p.setCedula(rs.getString("persona_id"));
+                t.setPersona(p);
+                lista.add(t);
+            }
+        } catch (SQLException ex) {
+            System.out.println("Buscar" + ex.getMessage());
+        }
+        return lista;
+    }
 }

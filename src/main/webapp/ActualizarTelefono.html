@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>ACTUALIZAR PERSONA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+        <link rel="stylesheet" href="recursos/estilos.css" type="text/css"/>
+
+
+    </head>
+    <body>
+        <h1>ACTUALIZAR PERSONA</h1>
+        <form action="/ManejoFormulario/ModificarTelefonoController" method="post">
+
+            <div class="row col-md-7">
+                <div class="card card-tittle">
+                    <h2>ACTUALIZAR DATOS</h2>
+                </div>
+
+                <div class="card card-body">
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">CODIGO</span>
+                            </div>
+                            <input type="text" name="codigo" class="form-control" aria-label="CODIGO"/>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">NUMERO</span>
+                            </div>
+                            <input type="text" name="numero" class="form-control" aria-label="NUMERO"/>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">TIPO</span>
+                            </div>
+                            <input type="text" name="tipo" class="form-control" aria-label="tipo"/>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Operador</span>
+                            </div>
+                            <input type="text" name="operador" class="form-control" aria-label="OPERADORA"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-footer">
+                    <button type="submit" class="btn btn-primary">GUARDAR</button>
+                    <button type="reset" class="btn btn-primary">CANCELAR</button>
+                
+                </div>
+        </form>
+    </div>
+</body>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+crossorigin="anonymous"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+crossorigin="anonymous"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+crossorigin="anonymous"></script>
+</html>

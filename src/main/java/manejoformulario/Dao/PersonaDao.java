@@ -5,12 +5,16 @@
  */
 package manejoformulario.Dao;
 
+import java.util.List;
 import manejoformulario.model.Persona;
+import manejoformulario.model.Telefono;
 
 /**
  *
  * @author jonat
  */
 public interface PersonaDao extends GenericDao<Persona, Integer>{
-    
+ public Persona buscarPersona(String usuario,String pass);
+ public Persona metodoBuscar(Integer id);
+
 }

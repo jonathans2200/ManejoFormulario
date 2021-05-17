@@ -24,10 +24,16 @@
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 link-secondary">BIENVENIDO</a></li>
                 </ul>
-                <form class="d-flex">
-
-                    <button class="btn btn-outline-success" type="submit">CERRAR SESION</button>
-                </form>
+                <div class="col-7 mx-auto p-4">
+                    <nav class="navbar navbar-light bg-light">
+                        <div class="container-fluid">
+                            <form action="/ManejoFormulario/BuscarTelefono" method="post" class="d-flex">
+                                <input class="form-control me-2" name="buscar" type="text" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success" type="submit">BUSCAR</button>
+                            </form>
+                        </div>
+                    </nav>
+                </div>
             </div>
         </nav>
     </header>
@@ -45,6 +51,7 @@
                         <div class="form-group">
                             <label>CEDULA: </label>
                             <p> ${lista.cedula}</p>
+      
                         </div>
                     </div>
                     <div class="row">
@@ -91,11 +98,11 @@
                         <tbody>
                             <c:forEach var="t" items="${lista}">
                                 <tr>
-                                    <td>${t.codigo}</td>
+                                    <td >${t.codigo}</td>
                                     <td>${t.numero}</td>
                                     <td>${t.tipo}</td>
                                     <td>${t.operadora}</td>
-                                    <td><button type="button" class="btn btn-primary">MODIFICAR</button>
+                                    <td><a href="/ManejoFormulario/ModificarTelefonoController?codigo=${t.codigo}" type="button" class="btn btn-primary">MODIFICAR</a>
                                         <button type="button" class="btn btn-danger">ELIMINAR</button>
                                 </tr>  
                             </c:forEach>

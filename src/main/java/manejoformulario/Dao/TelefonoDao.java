@@ -5,6 +5,7 @@
  */
 package manejoformulario.Dao;
 
+import java.util.List;
 import manejoformulario.model.Telefono;
 
 /**
@@ -12,5 +13,5 @@ import manejoformulario.model.Telefono;
  * @author jonat
  */
 public interface TelefonoDao  extends GenericDao<Telefono, Integer>{
-    
+     public List<Telefono> buscarPorCedula(String cedula);
 }
