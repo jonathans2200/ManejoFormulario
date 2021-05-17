@@ -23,7 +23,7 @@ import manejoformulario.model.Telefono;
  *
  * @author jonat
  */
-@WebServlet(name = "ListaTelefonoController", urlPatterns = {"/ListaTelefonoController"})
+@WebServlet("/ListaTelefonoController")
 public class ListaTelefonoController extends HttpServlet {
 private TelefonoDao telefonoDao;
 private List<Telefono> listaTelefono;

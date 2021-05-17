@@ -4,7 +4,6 @@
     Author     : jonat
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -51,7 +50,7 @@
                         <div class="form-group">
                             <label>CEDULA: </label>
                             <p> ${lista.cedula}</p>
-      
+
                         </div>
                     </div>
                     <div class="row">
@@ -83,7 +82,7 @@
                     <div class="card-tittle"></div>
                     <h2>LISTADO DE TELEFONOS</h2>
                     <div class="card-body"></div>
-                    <c:set  var="lista" scope="request" value="${personas}"/>
+                    <c:set  var="listas" scope="request" value="${personas}"/>
                     <table class="table">
                         <thead class="table-dark">
 
@@ -96,7 +95,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="t" items="${lista}">
+
+                            <c:forEach var="t" items="${listas}">
                                 <tr>
                                     <td >${t.codigo}</td>
                                     <td>${t.numero}</td>
@@ -106,6 +106,9 @@
                                         <button type="button" class="btn btn-danger">ELIMINAR</button>
                                 </tr>  
                             </c:forEach>
+
+
+
                         </tbody>
                     </table>
                     <div class="card-footer"></div>

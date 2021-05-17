@@ -33,7 +33,11 @@
             <div class="card-footer">
 
                 <button type="submit" class="btn btn-primary ">INGRESAR</button>
-
+                <div class="col-md-3">
+                    <a href="/ManejoFormulario/registroUsuario.jsp" class="btn btn-ligth btn-block">
+                        <i class="fas fa-arrow-left"></i> CREAR USUARIO
+                    </a>
+                </div>
             </div>
         </form>
     </div>

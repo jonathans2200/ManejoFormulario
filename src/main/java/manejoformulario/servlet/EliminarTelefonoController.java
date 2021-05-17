@@ -19,7 +19,7 @@ import manejoformulario.model.Telefono;
  *
  * @author jonat
  */
-@WebServlet(name = "EliminarTelefono", urlPatterns = {"/EliminarTelefono"})
+@WebServlet("/EliminarTelefono")
 public class EliminarTelefonoController extends HttpServlet {
 private TelefonoDao telefonoDao;
 private Telefono telefono;

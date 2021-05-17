@@ -52,10 +52,8 @@ public class BuscarTelefono extends HttpServlet {
           telefono=telefonoDao.buscarPorCedula(persona.getCedula());
             request.setAttribute("telefono", telefono);
           
-            url = "/buscarPersona.jsp";
-                
+            url = "/buscarPersona.jsp";           
             }
-            System.out.println("EL VALOR DE LA CEDULA ES" + id);
         } catch (Exception e) {
             url = "/error.jsp";
         }

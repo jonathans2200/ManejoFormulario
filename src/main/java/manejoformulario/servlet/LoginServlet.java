@@ -41,21 +41,22 @@ public class LoginServlet extends HttpServlet {
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
      * response)
      */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // TODO Auto-generated method stub
-
         String usuario = request.getParameter("usuario");
         String pass = request.getParameter("pass");
         PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession();
-       
-        System.out.println("Tamaño de la lista recuperada: " + listaTelefono.size());
 
-        Persona p = persona.buscarPersona(usuario, pass);
+            Persona p = persona.buscarPersona(usuario, pass);
+       
+    
         if (usuario.equals(p.getUsuario()) && pass.equals(p.getContrasena())) {
+             listaTelefono = telefonoDao.buscarPorCedula(p.getCedula());
             request.setAttribute("personas", listaTelefono);
             sesion.setAttribute("usuario", p);
-             listaTelefono = telefonoDao.buscarPorCedula(p.getCedula());
+
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaPrincipal.jsp");
             dispatcher.forward(request, response);
 //		
@@ -67,6 +68,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Datos Incorrectos");
 
         }
+
     }
 
 }
