@@ -46,8 +46,8 @@
             </section>
             <section id="detalles">
 
-                <div class="container">
-                    <div class="row">
+                <div class="container align-items-center">
+                    <div class="row col-md-8">
                         <div class="col">
                             <div class="card">
                                 <div class="card-header">
@@ -59,9 +59,9 @@
 
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="codigo">CODIGO</label>
+                                        
 
-                                        <input type="number"  class="form-control" name="codigo" value="${t}" >
+                                        <input type="hidden"  class="form-control" name="codigo" value="${t}" >
 
                                     </div> 
                                     <div class="form-group">
@@ -79,7 +79,7 @@
                                     <c:set  var="usuario" scope="request" value="${usuario}"/>
                                     <div class="form-group">
 
-                                        <input type="text" class="form-control" name="cedula"  value="${usuario.cedula}">
+                                        <input type="hidden" class="form-control" name="cedula"  value="${usuario.cedula}">
                                     </div>
 
 

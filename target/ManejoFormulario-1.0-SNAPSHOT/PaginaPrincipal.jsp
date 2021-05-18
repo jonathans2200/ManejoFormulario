@@ -10,7 +10,7 @@
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
-
+        <script src="https://kit.fontawesome.com/f90d3bf50d.js" crossorigin="anonymous"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>                   
@@ -38,97 +38,98 @@
     </header>
 
     <body>
-        <br><br><br>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-tittle"></div>
-                    <h3 class="card card-tittle text-center"> DATOS DEL USUARIO</h3>
-                    <div class="card-body"></div>
-                    <c:set  var="lista" scope="request" value="${usuario}"/>
-                    <div class="row">
-                        <div class="form-group">
-                            <h5>CEDULA: </h5>
-                            <p class="text-center"> ${lista.cedula}</p>
+        <br>
+        <section id="actions" class="py-4 mb-4 bg-light">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="card">
+                            <div class="card-tittle"></div>
+                            <h3 class="card card-tittle text-center"> DATOS DEL USUARIO</h3>
+                            <div class="card-body"></div>
+                            <c:set  var="lista" scope="request" value="${usuario}"/>
+                            <div class="row">
+                                <div class="form-group">
+                                    <h5>CEDULA: </h5>
+                                    <p class="text-center"> ${lista.cedula}</p>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <h5>NOMBRE: </h5> 
+                                    <p class="text-center"> ${lista.nombre}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <h5>APELLIDO: </h5> 
+                                    <p class="text-center"> ${lista.apellido}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group">
+                                    <h5>CORREO: </h5> 
+                                    <p class="text-center"> ${lista.correo}</p>
+                                </div>
+                            </div>
+                            <!-- comment -->
+                            <div class="card-footer"></div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-7">
+                        <div class="card">
+                            <div class="card-tittle"></div>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h2 class="text-center">LISTADO DE TELEFONOS</h2>
+                                </div> 
+                                <div class="col-sm-3">
+                                    <a href="/ManejoFormulario/NuevoTelefonoController?cedula=${lista.cedula}" class="btn btn-success ">
+                                        <i class="fas fa-user-plus"></i> ADD TELEFONO
+                                    </a>
+                                </div>   
+                            </div>
+
+                            <div class="card-body"></div>
+                            <c:set  var="listas" scope="request" value="${personas}"/>
+
+                            <table class="table table-bordered">
+                                <thead class="table-light">
+
+                                    <tr class="table-success">
+                                        <th scope="col">#</th>
+                                        <th scope="col">TELEFONO</th>
+                                        <th scope="col">OPERADORA</th>
+                                        <th scope="col">TIPO</th>
+                                        <th scope="col">OPCIONES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <c:forEach var="t" items="${listas}">
+                                        <tr>
+                                            <td >${t.codigo}</td>
+                                            <td>${t.numero}</td>
+                                            <td>${t.tipo}</td>
+                                            <td>${t.operadora}</td>
+                                            <td><a href="/ManejoFormulario/ModificarTelefonoController?codigo=${t.codigo}" type="button" class="btn btn-primary">MODIFICAR</a>
+                                                <button type="button" class="btn btn-danger">ELIMINAR</button>
+                                        </tr>  
+                                    </c:forEach>
+
+
+
+                                </tbody>
+                            </table>
+
 
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <h5>NOMBRE: </h5> 
-                            <p class="text-center"> ${lista.nombre}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <h5>APELLIDO: </h5> 
-                            <p class="text-center"> ${lista.apellido}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-group">
-                            <h5>CORREO: </h5> 
-                            <p class="text-center"> ${lista.correo}</p>
-                        </div>
-                    </div>
-                    <!-- comment -->
-                    <div class="card-footer"></div>
-
                 </div>
-
-            </div>
-            <div class="col-md-7">
-                <div class="card">
-                    <div class="card-tittle"></div>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <h2 class="text-center">LISTADO DE TELEFONOS</h2>
-                        </div> 
-                        <div class="col-sm-3">
-                            <a href="/ManejoFormulario/NuevoTelefonoController?cedula=${lista.cedula}" class="btn btn-primary ">
-                                <i class="fas fa-arrow-left"></i> ADD TELEFONO
-                            </a>
-                        </div>   
-                    </div>
-
-                    <div class="card-body"></div>
-                    <c:set  var="listas" scope="request" value="${personas}"/>
-
-                    <table class="table">
-                        <thead class="table-dark">
-
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">TELEFONO</th>
-                                <th scope="col">OPERADORA</th>
-                                <th scope="col">TIPO</th>
-                                <th scope="col">OPCIONES</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <c:forEach var="t" items="${listas}">
-                                <tr>
-                                    <td >${t.codigo}</td>
-                                    <td>${t.numero}</td>
-                                    <td>${t.tipo}</td>
-                                    <td>${t.operadora}</td>
-                                    <td><a href="/ManejoFormulario/ModificarTelefonoController?codigo=${t.codigo}" type="button" class="btn btn-primary">MODIFICAR</a>
-                                        <button type="button" class="btn btn-danger">ELIMINAR</button>
-                                </tr>  
-                            </c:forEach>
-
-
-
-                        </tbody>
-                    </table>
-                    <div class="card-footer"></div>
-
-                </div>
-
-            </div>
-        </div>
-
+        </section>
     </div>
 
 </body>

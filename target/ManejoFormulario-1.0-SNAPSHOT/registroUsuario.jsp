@@ -17,7 +17,7 @@
 
     </head>
     <body>
-        <h1>REGISTRAR PERSONA</h1>
+  
         <form  action="/ManejoFormulario/RegistroPersona" method="post">
         </div>
 
@@ -27,12 +27,12 @@
                 <div class="row">
                     <div class="col-md-3">
                         <a href="index.jsp" class="btn btn-ligth btn-block">
-                            <i class="fas fa-arrow-left"></i> Regresar al inicio
+                            <i class="fas fa-arrow-left"></i> REGRESAR
                         </a>
                     </div>
                     <div class="col-md-3">
                         <button type="submit" class="btn btn-success btn-block">
-                            <i class="fas fa-check"></i> Guardar Cliente
+                            <i class="fas fa-check"></i> GUARDAR USUARIO
                         </button>
                     </div>
 
@@ -42,11 +42,11 @@
         <section id="detalles">
 
             <div class="container">
-                <div class="row">
+                <div class="row col-md-7">
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h4>INGRESAR LOS DATOS</h4>
+                                <h4>REGISTRO DE USUARIO</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">

@@ -17,7 +17,7 @@
 
     </head>
     <body>
-        <h1>ACTUALIZAR PERSONA</h1>
+        
         <form  action="/ManejoFormulario/ModificarTelefonoController?codigo=${telefono.codigo}" method="post">
         </div>
 
@@ -42,11 +42,11 @@
         <section id="detalles">
 
             <div class="container">
-                <div class="row">
+                <div class="row col-md-7">
                     <div class="col">
                         <div class="card">
                             <div class="card-header">
-                                <h4>Editar Cliente</h4>
+                                <h4 class="text-center">EDITAR TELEFONO</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
