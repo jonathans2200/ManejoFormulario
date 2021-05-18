@@ -29,12 +29,12 @@
                             <br>                           
 
                             <div class="input-group mb-2">
-                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+                                <input type="text" class="form-control" id="usuario" name="usuario" required placeholder="Usuario">
                             </div>
                             <br>
                             <label class="sr-only" for="inlineFormInputGroup">INGRESE EL PASSWORD</label>
                             <div class="input-group mb-2">
-                                <input type="password" class="form-control" id="pass" name="pass" >
+                                <input type="password" class="form-control" id="pass" name="pass" required >
                             </div>
                             <div class="col-auto">
                                <button type="submit" class="btn btn-primary btn-block">INGRESAR</button>

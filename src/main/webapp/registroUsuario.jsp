@@ -52,27 +52,27 @@
                                 <div class="form-group">
                                     <label for="codigo">CEDULA</label>
 
-                                    <input type="number" class="form-control" name="cedula" >
+                                    <input type="number" class="form-control" name="cedula"required >
                                 </div> 
                                 <div class="form-group">
                                     <label for="numero">NOMBRE</label>
-                                    <input type="text" class="form-control" name="nombre"  >
+                                    <input type="text" class="form-control" name="nombre"  required>
                                 </div> 
                                 <div class="form-group">
                                     <label for="codigo">APELLIDO</label>
-                                    <input type="text" class="form-control" name="apellido"  >
+                                    <input type="text" class="form-control" name="apellido" required  >
                                 </div> 
                                 <div class="form-group">
                                     <label for="codigo">CORREO</label>
-                                    <input type="text" class="form-control" name="correo" >
+                                    <input type="text" class="form-control" name="correo"  required>
                                 </div> 
                                 <div class="form-group">
                                     <label for="codigo">USUARIO</label>
-                                    <input type="text" class="form-control" name="usuario" >
+                                    <input type="text" class="form-control" name="usuario" required> 
                                 </div> 
                                 <div class="form-group">
                                     <label for="codigo">PASSWORD</label>
-                                    <input type="text" class="form-control" name="contrasena" >
+                                    <input type="text" class="form-control" name="contrasena" required>
                                 </div> 
                                 </form>
 
