@@ -1,4 +1,6 @@
 # ManejoFormulario
 Trabajo Agenda Telefonica
 JSP, Servlets, JDBC
-https://github.com/jonathans2200/ManejoFormulario/blob/main/assets/img1.jpeg
+
+![Diagrama UML del sistema](/assets/img1.jpeg?raw=true "Diagrama de clases UML")
+
