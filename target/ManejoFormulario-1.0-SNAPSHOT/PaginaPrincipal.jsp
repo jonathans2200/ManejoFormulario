@@ -4,7 +4,6 @@
     Author     : jonat
 --%>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -44,32 +43,32 @@
             <div class="col-md-3">
                 <div class="card">
                     <div class="card-tittle"></div>
-                    <h3 class="card card-tittle"> DATOS DEL USUARIO</h3>
+                    <h3 class="card card-tittle text-center"> DATOS DEL USUARIO</h3>
                     <div class="card-body"></div>
                     <c:set  var="lista" scope="request" value="${usuario}"/>
                     <div class="row">
                         <div class="form-group">
-                            <label>CEDULA: </label>
-                            <p> ${lista.cedula}</p>
-      
+                            <h5>CEDULA: </h5>
+                            <p class="text-center"> ${lista.cedula}</p>
+
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label>NOMBRE: </label> 
-                            <p> ${lista.nombre}</p>
+                            <h5>NOMBRE: </h5> 
+                            <p class="text-center"> ${lista.nombre}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label>APELLIDO: </label> 
-                            <p> ${lista.apellido}</p>
+                            <h5>APELLIDO: </h5> 
+                            <p class="text-center"> ${lista.apellido}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group">
-                            <label>CORREO: </label> 
-                            <p> ${lista.correo}</p>
+                            <h5>CORREO: </h5> 
+                            <p class="text-center"> ${lista.correo}</p>
                         </div>
                     </div>
                     <!-- comment -->
@@ -81,9 +80,20 @@
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-tittle"></div>
-                    <h2>LISTADO DE TELEFONOS</h2>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <h2 class="text-center">LISTADO DE TELEFONOS</h2>
+                        </div> 
+                        <div class="col-sm-3">
+                            <a href="/ManejoFormulario/NuevoTelefonoController?cedula=${lista.cedula}" class="btn btn-primary ">
+                                <i class="fas fa-arrow-left"></i> ADD TELEFONO
+                            </a>
+                        </div>   
+                    </div>
+
                     <div class="card-body"></div>
-                    <c:set  var="lista" scope="request" value="${personas}"/>
+                    <c:set  var="listas" scope="request" value="${personas}"/>
+
                     <table class="table">
                         <thead class="table-dark">
 
@@ -96,7 +106,8 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <c:forEach var="t" items="${lista}">
+
+                            <c:forEach var="t" items="${listas}">
                                 <tr>
                                     <td >${t.codigo}</td>
                                     <td>${t.numero}</td>
@@ -106,6 +117,9 @@
                                         <button type="button" class="btn btn-danger">ELIMINAR</button>
                                 </tr>  
                             </c:forEach>
+
+
+
                         </tbody>
                     </table>
                     <div class="card-footer"></div>

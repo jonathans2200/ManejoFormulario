@@ -13,31 +13,45 @@
         <title>JSP Page</title>
     </head>
     <body>
+     <br>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row justify-content-md-center align-items-center">
+                <div class="card border-primary" style="max-width: 30rem;">
+                    <div class="card-header text-center">INICIO DE SESION</div>
+                    <br>
+                    <br>
 
-        <div class="card " style="width: 18rem;">
+                    <form action="LoginServlet" method="get">
+                        <div class="col-auto">
+                            <label class="sr-only" for="inlineFormInputGroup">INGRESE EL USUARIO</label>
+                            <br>                           
 
-            <div class="card-body">
-                <form action="LoginServlet" method="get">
-                    <div class=" form-group  col-sm-12">
-                        <label for="usuario">USUARIO</label> <input type="text"
-                                                                    class="form-control" id="usuario" name="usuario"
-                                                                    aria-describedby="emailHelp">
-                    </div>
-                    <div class=" form-group col-12">
-                        <label for="pass">Password</label> <input type="password"
-                                                                  class="form-control" id="pass" name="pass">
-                    </div>
-
-
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
+                            </div>
+                            <br>
+                            <label class="sr-only" for="inlineFormInputGroup">INGRESE EL PASSWORD</label>
+                            <div class="input-group mb-2">
+                                <input type="password" class="form-control" id="pass" name="pass" >
+                            </div>
+                            <div class="col-auto">
+                               <button type="submit" class="btn btn-primary btn-block">INGRESAR</button>
+                            </div>
+                            <br>
+                            <div class="col-auto">
+                                <a href="/ManejoFormulario/registroUsuario.jsp" class="btn btn-primary  btn-block">CREAR USUARIO</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="card-footer">
 
-                <button type="submit" class="btn btn-primary ">INGRESAR</button>
 
-            </div>
-        </form>
-    </div>
-</div>
+
+
+
 </body>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

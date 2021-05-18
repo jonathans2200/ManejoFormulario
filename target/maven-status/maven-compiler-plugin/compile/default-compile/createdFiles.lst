@@ -1,4 +1,5 @@
 manejoformulario\servlet\ListaTelefonoController.class
+manejoformulario\servlet\RegistroPersona.class
 manejoformulario\Dao\DAOFactory.class
 manejoformulario\servlet\BuscarTelefono.class
 manejoformulario\JDBC\JDBCGenericDAo.class
