@@ -49,13 +49,13 @@ public class LoginServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession sesion = request.getSession();
 
-            Persona p = persona.buscarPersona(usuario, pass);
-       
-    
+        Persona p = persona.buscarPersona(usuario, pass);
+
         if (usuario.equals(p.getUsuario()) && pass.equals(p.getContrasena())) {
-             listaTelefono = telefonoDao.buscarPorCedula(p.getCedula());
-            request.setAttribute("personas", listaTelefono);
+            listaTelefono = telefonoDao.buscarPorCedula(p.getCedula());
             sesion.setAttribute("usuario", p);
+            
+            sesion.setAttribute("personas", listaTelefono);
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaPrincipal.jsp");
             dispatcher.forward(request, response);

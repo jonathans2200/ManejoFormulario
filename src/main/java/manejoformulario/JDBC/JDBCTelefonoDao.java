@@ -41,8 +41,7 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
                 + entity.getNumero() + "','"
                 + entity.getOperadora() + "','"
                 + entity.getTipo() + "','"
-                + entity.getPersona().getCedula() + "',"
-                + ");");
+                + entity.getPersona().getCedula() + "');");
     }
 
     @Override
@@ -133,4 +132,19 @@ public class JDBCTelefonoDao extends JDBCGenericDAo<Telefono, Integer> implement
         }
         return lista;
     }
+
+public int numeroTelefono(){
+    int resultado =0;
+   
+        ResultSet rs = jdbc.query("select count(*) as total from telefono ;");
+       try{
+           if(rs.next()){
+             resultado=rs.getInt("total");
+           }
+    }catch(Exception e){
+           System.out.println("ERROR COUNT" + e);
+          
+    }
+    return resultado;
+}
 }

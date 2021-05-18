@@ -53,12 +53,13 @@ public class ModificarTelefonoController extends HttpServlet {
             telefono.setNumero(request.getParameter("numero"));
             telefono.setTipo(request.getParameter("tipo"));
             telefono.setOperadora(request.getParameter("operador"));
-            telefonoDao.update(telefono);
-            
-           url = "/PaginaPrinciapl.jsp";
+            telefonoDao.update(telefono);   
+           url = "/PaginaPrincipal.jsp";
         } catch (Exception e) {
+            url="/error.jsp";
             System.out.println("error" + e.getMessage());
         }
+        getServletContext().getRequestDispatcher(url).forward(request, response);
     }
 
 }

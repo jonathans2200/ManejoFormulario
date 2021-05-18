@@ -14,4 +14,5 @@ import manejoformulario.model.Telefono;
  */
 public interface TelefonoDao  extends GenericDao<Telefono, Integer>{
      public List<Telefono> buscarPorCedula(String cedula);
+     public int numeroTelefono();
 }
