@@ -66,15 +66,15 @@
                                     </div> 
                                     <div class="form-group">
                                         <label for="numero">NUMERO</label>
-                                        <input type="text" class="form-control" name="numero"  >
+                                        <input type="text" class="form-control" name="numero" required >
                                     </div> 
                                     <div class="form-group">
                                         <label for="tipo">TIPO</label>
-                                        <input type="text" class="form-control" name="tipo"  >
+                                        <input type="text" class="form-control" name="tipo" required  >
                                     </div> 
                                     <div class="form-group">
                                         <label for="operadora">OPERADORA</label>
-                                        <input type="text" class="form-control" name="operadora" >
+                                        <input type="text" class="form-control" name="operadora" required>
                                     </div> 
                                     <c:set  var="usuario" scope="request" value="${usuario}"/>
                                     <div class="form-group">
