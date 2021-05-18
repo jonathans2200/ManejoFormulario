@@ -7,6 +7,8 @@ package manejoformulario.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,12 +29,15 @@ public class NuevoTelefonoController extends HttpServlet {
 
     private TelefonoDao telefonoDao;
     private Telefono telefono;
+    private List<Telefono> listatelefono;
+
     private Persona persona;
 
     public NuevoTelefonoController() {
         telefonoDao = DAOFactory.getFactory().getTelefonoDao();
         telefono = new Telefono();
         persona = new Persona();
+        listatelefono = new ArrayList<>();
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -48,12 +53,13 @@ public class NuevoTelefonoController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int total = 0;
-       
+
         total = telefonoDao.numeroTelefono() + 1;
         request.setAttribute("total", total);
         System.out.println("PRUEBA TOTAL" + total);
         String usuario = null;
         request.getAttribute("usuario");
+
         request.setAttribute("usuario", usuario);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/registroTelefono.jsp");
@@ -74,14 +80,15 @@ public class NuevoTelefonoController extends HttpServlet {
             persona.setCedula(request.getParameter("cedula"));
             telefono.setPersona(persona);
             telefonoDao.crear(telefono);
-          
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaPrincipal.jsp");
+            listatelefono = telefonoDao.buscarPorCedula(persona.getCedula());
+            request.setAttribute("personas", listatelefono);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/PaginaPrincipal.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
-           RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/error.jsp");
             dispatcher.forward(request, response);
         }
-     
+
     }
 
 }

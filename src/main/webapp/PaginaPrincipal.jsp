@@ -43,8 +43,8 @@
             <div class="content">
                 <div class="row">
                     <div class="col-md-3">
-                        <div class="card">
-                            <div class="card-tittle"></div>
+                        <div class="card  ">
+                            <div class="card-tittle  "></div>
                             <h3 class="card card-tittle text-center"> DATOS DEL USUARIO</h3>
                             <div class="card-body"></div>
                             <c:set  var="lista" scope="request" value="${usuario}"/>
@@ -100,7 +100,7 @@
                                 <thead class="table-light">
 
                                     <tr class="table-success">
-                                        <th scope="col">#</th>
+                                      
                                         <th scope="col">TELEFONO</th>
                                         <th scope="col">OPERADORA</th>
                                         <th scope="col">TIPO</th>
@@ -111,7 +111,7 @@
 
                                     <c:forEach var="t" items="${listas}">
                                         <tr>
-                                            <td >${t.codigo}</td>
+                                          
                                             <td>${t.numero}</td>
                                             <td>${t.tipo}</td>
                                             <td>${t.operadora}</td>

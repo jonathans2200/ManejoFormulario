@@ -55,6 +55,7 @@ public class ModificarTelefonoController extends HttpServlet {
             telefono.setOperadora(request.getParameter("operador"));
             telefonoDao.update(telefono);   
            url = "/PaginaPrincipal.jsp";
+       
         } catch (Exception e) {
             url="/error.jsp";
             System.out.println("error" + e.getMessage());
